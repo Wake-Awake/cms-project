@@ -1,16 +1,21 @@
-
-
 export default function Home() {
   return (
-    <>
-      <section className="flex flex-col items-center justify-center min-h-[80vh] px-4">
-        <div className="text-gray-800 text-3xl font-bold mb-4">
-          Welcome to My Application
+    <main className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://source.unsplash.com/featured/?technology)' }}>
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+      <section className="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-10 max-w-xl text-center text-white shadow-2xl border border-white/20">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow">
+            Welcome to My Application
+          </h1>
+          <p className="text-lg text-white/90 mb-8">
+            Build, connect, and grow with seamless tech solutions tailored for you.
+          </p>
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg text-lg transition duration-300 transform hover:scale-105">
+            Get Started 🚀
+          </button>
         </div>
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg text-lg transition duration-300">
-         
-        </button>
       </section>
-    </>
+    </main>
   );
 }
