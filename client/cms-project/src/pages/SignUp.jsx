@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
+import AuthContext from '../context/AuthContext';
+import "./Signup.css";
 
 export default function Signup() {
   const [form, setForm] = useState({
