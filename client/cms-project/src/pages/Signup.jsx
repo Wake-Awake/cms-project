@@ -1,94 +1,74 @@
-import React, { useState } from "react";
+import { useContext, useState } from 'react';
+import AuthContext from '../context/AuthContext';
 
-export default function Signup() {
-  const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+export default function SignUp() {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const { register } = useContext(AuthContext);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    setError("");
-    setSuccess("");
-  };
+	function handleSubmit(event) {
+		event.preventDefault();
+		register(email, password);
+	}
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (form.password !== form.confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
-    try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: form.username,
-          email: form.email,
-          password: form.password,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.message || "Signup failed.");
-      } else {
-        setSuccess("Signup successful! Please log in.");
-        setForm({
-          username: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-      }
-    } catch (err) {
-      setError("An error occurred. Please try again.");
-    }
-  };
+	return (
+		<div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 animate-fade-in">
+			<form
+				onSubmit={handleSubmit}
+				className="bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-md border border-gray-200 animate-slide-up"
+			>
+				<h2 className="text-4xl font-extrabold mb-10 text-center text-indigo-700 tracking-tight drop-shadow">
+					Join Us Today
+				</h2>
 
-  return (
-    <div className="signup-container">
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Sign Up</button>
-        {error && <div className="error">{error}</div>}
-        {success && <div className="success">{success}</div>}
-      </form>
-    </div>
-  );
+				{/* Email Input */}
+				<div className="mb-6">
+					<label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+						Email Address
+					</label>
+					<input
+						id="email"
+						type="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white transition-all duration-300"
+						placeholder="you@example.com"
+					/>
+				</div>
+
+				{/* Password Input */}
+				<div className="mb-8">
+					<label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+						Password
+					</label>
+					<input
+						id="password"
+						type="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white transition-all duration-300"
+						placeholder="••••••••"
+					/>
+				</div>
+
+				{/* Submit Button */}
+				<button
+					type="submit"
+					className="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white py-3 rounded-lg hover:from-indigo-600 hover:to-pink-600 transition-all duration-300 font-bold shadow-md hover:shadow-lg"
+				>
+					Create Account
+				</button>
+
+				{/* Sign-in Link */}
+				<div className="mt-6 text-center text-sm text-gray-600">
+					Already have an account?{' '}
+					<a href="/Sign-in" className="text-indigo-600 hover:underline font-medium">
+						Sign in
+					</a>
+				</div>
+			</form>
+		</div>
+	);
 }

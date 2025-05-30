@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-// import userService from '../service/userService';
+import userService from '../services/userService';
 import { useNavigate } from 'react-router';
 
 
@@ -14,7 +14,7 @@ function AuthProvider({ children }) {
 		try {
 			userService.authenticate(email, password);
 			setIsAuth(true);
-			navigate('/dashboard/intro');
+			navigate('/Main');
 			Swal.fire({
 				title: "Success",
 				text: "Login is successful",
@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
 		try {
 			userService.addUser(email, password);
 			setIsAuth(true);
-			navigate('/dashboard/intro');
+			navigate('/Main');
 			Swal.fire({
 				title: "Success",
 				text: "Registration is successful",
