@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import Signin from "./Signin";
-import Signup from "./SignUp";
+
 
 export default function Home() {
   return (
