@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   return (
@@ -36,6 +37,12 @@ export default function Signin() {
           >
             Sign In
           </button>
+         
+ 
+<Link to="/Sign-up" className="text-sm text-gray-600">
+  Don't have an account?
+</Link>
+
         </form>
       </div>
     </div>
