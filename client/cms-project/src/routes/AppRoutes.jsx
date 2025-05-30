@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import PrivateRoute from './PrivateRoute';
 import Signin from "../pages/Signin";
-import Signup from "../pages/SignUp";
+import Signup from "../pages/Signup";
 import About from "../pages/About";
 import Mainpage from "../pages/Mainpage";
 import AuthContext, { AuthProvider } from "../context/AuthContext";
