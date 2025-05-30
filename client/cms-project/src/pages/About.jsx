@@ -1,30 +1,13 @@
 export default function About(){
-    const styles = {
-        container: {
-          padding: '20px',
-          backgroundColor: '#f9f9f9',
-          fontFamily: 'Arial, sans-serif',
-          maxWidth: '800px',
-          margin: '0 auto',
-        },
-        heading: {
-          color: '#333',
-          textAlign: 'center',
-          fontSize: '2.5rem',
-        },
-        paragraph: {
-          color: '#555',
-          fontSize: '1.2rem',
-          lineHeight: '1.6',
-        },
-      };
+    // No styles object needed; using Tailwind CSS classes instead
     
       return (
-        <div style={styles.container}>
-          <h1 style={styles.heading}>About Us</h1>
-          <p style={styles.paragraph}>
-            Welcome to our company! We strive to offer top-tier services with a focus on customer satisfaction. Our team is dedicated, experienced, and always here to help.
+        <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-lg shadow">
+          <h1 className="text-3xl font-bold mb-4 text-gray-800">About Schedule Tracker</h1>
+          <p className="text-gray-600 text-lg">
+            Welcome to Schedule Tracker! We help you organize your tasks, manage your time efficiently, and stay on top of your schedule. Our team is dedicated to providing a seamless and productive experience for all users.
           </p>
         </div>
       );
+      
 }

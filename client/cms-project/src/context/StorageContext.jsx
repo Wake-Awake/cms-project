@@ -1,7 +1,44 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // import mockToys from "../mocks/toysMock";
-//import storageService from "../service/storageService"; // adjust path as needed
+
 import AuthContext from "./AuthContext";
+import storageService from "../service/storageService";
+import mockToys from "../mocks/toysMock";
+
+// Helper functions for user storage
+const USER_STORAGE_KEY = "users";
+
+function getStoredUsers() {
+    return storageService.getItem(USER_STORAGE_KEY) || [];
+}
+
+function saveUsers(users) {
+    storageService.setItem(USER_STORAGE_KEY, users);
+}
+
+function findUserByEmail(email) {
+    const users = getStoredUsers();
+    return users.find(user => user.email === email);
+}
+
+function loginOrCreateUser(email, password) {
+    let users = getStoredUsers();
+    let user = users.find(u => u.email === email);
+    if (user) {
+        // Try login
+        if (user.password === password) {
+            return { success: true, user };
+        } else {
+            return { success: false, error: "Incorrect password" };
+        }
+    } else {
+        // Create new account
+        user = { email, password };
+        users.push(user);
+        saveUsers(users);
+        return { success: true, user };
+    }
+}
 
 
 const STORAGE_KEY = "toys";

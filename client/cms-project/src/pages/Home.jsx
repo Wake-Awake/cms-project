@@ -4,14 +4,9 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <main
-      className="relative min-h-screen bg-cover bg-center"
-      style={{
-        backgroundImage: 'linear-gradient(120deg, #1e293b 0%,rgb(127, 99, 241) 100%), url(https://source.unsplash.com/featured/?technology)',
-        backgroundBlendMode: 'overlay',
-      }}
+      className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-indigo-700 flex flex-col"
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-md"></div>
-      {/* Top navigation for Sign In and Sign Up */}
+      {/* Top navigation */}
       <nav className="absolute top-0 left-0 w-full flex justify-end items-center p-6 z-20">
         <Link
           to="/Sign-in"
@@ -26,21 +21,64 @@ export default function Home() {
           Sign Up
         </Link>
       </nav>
-      <section className="relative z-10 flex items-center justify-center min-h-screen px-6">
-        <div className="bg-white/20 backdrop-blur-xl rounded-3xl p-12 max-w-2xl text-center text-white shadow-2xl border border-white/30 transition-all duration-500 hover:scale-105 hover:shadow-3xl">
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 drop-shadow-lg tracking-tight">
-            Welcome to My Application
+      <section className="flex flex-1 items-center justify-center px-4 py-24">
+        <div className="bg-white/20 backdrop-blur-xl rounded-3xl p-10 max-w-3xl w-full shadow-2xl border border-white/30">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 text-white drop-shadow-lg text-center">
+            Schedule Tracker
           </h1>
-          
-          <p className="text-xl text-white/90 mb-10 font-medium">
-            Build, connect, and grow with seamless tech solutions tailored for you.
+          <p className="text-lg text-white/90 mb-8 text-center">
+            Organize your day, manage your tasks, and stay productive!
           </p>
-          <p></p>
-          <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 text-white font-bold px-10 py-4 rounded-full shadow-xl text-xl transition duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-indigo-300">
-            <Link to="/Sign-in">
-            Get Started <span className="ml-2 animate-bounce">🚀</span>
+          {/* Schedule Table */}
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white/80 rounded-xl shadow-lg">
+              <thead>
+                <tr>
+                  <th className="py-3 px-4 text-left text-indigo-700 font-bold">Time</th>
+                  <th className="py-3 px-4 text-left text-indigo-700 font-bold">Task</th>
+                  <th className="py-3 px-4 text-left text-indigo-700 font-bold">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-indigo-50/60 transition">
+                  <td className="py-3 px-4">08:00 AM</td>
+                  <td className="py-3 px-4">Morning Standup</td>
+                  <td className="py-3 px-4">
+                    <span className="inline-block px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-semibold">Completed</span>
+                  </td>
+                </tr>
+                <tr className="hover:bg-indigo-50/60 transition">
+                  <td className="py-3 px-4">10:00 AM</td>
+                  <td className="py-3 px-4">Project Work</td>
+                  <td className="py-3 px-4">
+                    <span className="inline-block px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">In Progress</span>
+                  </td>
+                </tr>
+                <tr className="hover:bg-indigo-50/60 transition">
+                  <td className="py-3 px-4">01:00 PM</td>
+                  <td className="py-3 px-4">Lunch Break</td>
+                  <td className="py-3 px-4">
+                    <span className="inline-block px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Upcoming</span>
+                  </td>
+                </tr>
+                <tr className="hover:bg-indigo-50/60 transition">
+                  <td className="py-3 px-4">03:00 PM</td>
+                  <td className="py-3 px-4">Client Meeting</td>
+                  <td className="py-3 px-4">
+                    <span className="inline-block px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Upcoming</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/Sign-in"
+              className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 text-white font-bold px-10 py-4 rounded-full shadow-xl text-xl transition duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-indigo-300"
+            >
+              Get Started <span className="ml-2 animate-bounce">🚀</span>
             </Link>
-          </button>
+          </div>
         </div>
       </section>
     </main>
