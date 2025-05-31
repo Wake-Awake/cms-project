@@ -5,30 +5,15 @@ export default function Home() {
     <main className="min-h-screen bg-blue-50">
       {/* Navigation */}
       <nav className="w-full flex justify-between items-center p-6 bg-white shadow-sm">
-        <span className="text-2xl font-bold text-blue-600">
-          Schedule Tracker
-        </span>
-        <div className="flex gap-4">
-          <Link
-            to="/Sign-in"
-            className="px-5 py-2 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition"
-          >
-            Sign In
-          </Link>
-          <Link
-            to="/Sign-up"
-            className="px-5 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition shadow-md"
-          >
-            Sign Up
-          </Link>
-        </div>
+      
       </nav>
 
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Organize Your Day <br />
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 ">
+           
+         Organize Your Day <br />
             <span className="text-blue-500">Effortlessly</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -94,7 +79,7 @@ export default function Home() {
 
         {/* CTA */}
         <Link
-          to="/Sign-in"
+          to="/Signin"
           className="px-8 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition shadow-lg hover:shadow-xl"
         >
           Get Started - It's Free

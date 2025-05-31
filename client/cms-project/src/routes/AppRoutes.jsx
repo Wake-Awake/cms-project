@@ -7,15 +7,18 @@ import About from "../pages/About";
 import Mainpage from "../pages/Mainpage";
 import AuthContext, { AuthProvider } from "../context/AuthContext";
 import NotFound from "../pages/Notfound";
+import BasicLayouts from "../layouts/BasicLayouts";
 
 
 export default function AppRoutes() {
   return (
     <Routes>
-        <Route index element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Sign-in" element={<Signin />} />
-        <Route path="/Sign-up" element={<Signup />} />
+     		<Route path="/" element={<BasicLayouts />}>
+				<Route index element={<Home />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/Signin" element={<Signin />} />
+				<Route path="/Signup" element={<Signup />} />
+			</Route>
         <Route path="/About" element={<About />} />
      			<Route
 				path="/Mainpage"
